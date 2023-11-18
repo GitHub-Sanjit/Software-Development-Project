@@ -1,0 +1,93 @@
+body{
+    margin: 0px;
+    padding:0px;
+}
+.containers{
+    background-color: #120e8f;
+}
+.gradient{
+    background: linear-gradient(rgb(211, 209, 209) 0%, rgba(251, 251, 251, 0) 100%), linear-gradient(90deg, #83cefa, #7a776f);
+}
+.shop-now-btn{
+    height: 56px;
+    width: 200px;
+    background-color: #050469;
+    color: white;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+}
+.banners{
+    height:600px;
+}
+.left-banner-first{
+    height: 328px;
+}
+.left-banner-second{
+    background-color: #ADC2D7;
+}
+.left-banner-second p{
+    color: white;
+}
+.left-banner-second h{
+    color: black;
+}
+.right-banner{
+    background-color: #EDEDED;
+    height: 100%;
+}
+.category-card{
+    height: 120px;
+    width: 160px;
+    background-color: #EDEDED;
+    color: black;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+}
+.category-card-icon{
+    font-size: 45px;
+}
+.card-sale11{
+    height: 472px;
+    background-color: #958AD4;
+}
+.eleven-sale-text{
+    padding-top: 20%;
+}
+.eleven-color{
+    font-weight: 900;
+    font-family:Montserrat;
+    color: #25177B;
+    font-size: 72px;
+}
+.sale{
+    font-weight: 900;
+    font-family:Montserrat;
+    font-size: 72px;
+}
+.footer-bg{
+    background-color: #241541;
+}
+.buy-btn{
+    height: 48px;
+    width: 153px;
+    background-color: black;
+    box-shadow: 5px 5px 5px	gray;
+    color: white;
+    border-radius: 8px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+@media only screen and (max-width: 770px) {
+    .category {
+      padding-top: 520px;
+      margin-right: 10px;
+    }
+    .container{
+        margin-right: 30px;
+    }
+  }
