@@ -1,0 +1,118 @@
+/* global css */
+section {
+    padding: 40px 0px;
+}
+
+
+
+/* slider css start */
+
+.slider,
+footer {
+    background-color: #FAE6E5;
+}
+
+.price {
+    color: #FF136F;
+}
+
+.btn-slider {
+    background: #FF136F;
+    padding: 10px 30px;
+    border-radius: 30px;
+    border: none;
+    color: white;
+}
+
+/* slider css end */
+
+/* categories css start */
+.cate-padding {
+    padding: 10px 30px;
+}
+
+.watch {
+    background: #FFA500;
+}
+
+.bag {
+    background-color: purple;
+}
+
+.shoes {
+    background-color: blue;
+}
+
+.watch img {
+    width: 100px;
+}
+
+.bag img {
+    width: 110px;
+}
+
+.shoes img {
+    width: 100px;
+}
+
+/* categories css end */
+
+.card {
+    box-shadow: 0px 5px 17px;
+    padding: 10px;
+}
+
+
+
+
+@media(min-width: 992px) and (max-width: 1199px) {
+    /* laptop */
+
+}
+
+@media(min-width: 768px) and (max-width: 991px) {
+    /* tap */
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+
+    /* mobile */
+    .watch {
+        margin-top: 20px;
+    }
+
+    .bag {
+        margin-top: 20px;
+    }
+
+    .shoes {
+        margin-top: 20px;
+    }
+
+    .card {
+        margin-top: 20px;
+
+    }
+
+}
+
+@media (min-width: 0px) and (max-width: 575px) {
+
+    /* mobile */
+    .watch {
+        margin-top: 20px;
+    }
+
+    .card {
+        margin-top: 20px;
+
+    }
+
+    .bag {
+        margin-top: 20px;
+    }
+
+    .shoes {
+        margin-top: 20px;
+    }
+}
