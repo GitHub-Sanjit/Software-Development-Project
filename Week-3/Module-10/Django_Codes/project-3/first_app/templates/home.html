@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HOME</title>
+  </head>
+  <body>
+    <h1>This is Home page...</h1>
+    <h2>Author : {{author}}</h2>
+    <h2>Age : {{age}}</h2>
+    {% comment %} conditional statement {% endcomment %} {% if age >= 20 %}
+    <h4>You will get Driving Liscense.</h4>
+    {% elif age >= 10 and age <= 19 %}
+    <h4>You will not Get drivin liscense.</h4>
+    {% else %}
+    <h4>You are a child</h4>
+    {% endif %}
+    <hr />
+    {% comment %} for loop {% endcomment %} <br />
+    {% for i in courses %}
+    <h3>{{i.id}}</h3>
+    <h3>{{i.name}}</h3>
+    <h3>{{i.fee}}</h3>
+    <hr />
+    {% endfor %}
+
+    <hr />
+    {% comment %} templete filtering {% endcomment %} <br />
+    {{lst}}
+    <h1>{{lst | join:" "}}</h1>
+    <br />
+    <h1>{{birthDay | date:"D d M Y"}}</h1>
+    <h1>{{val | default:"an empty string"}}</h1>
+    <h1>{{lst | length}}</h1>
+    <h1>{{'Happy Codding' | truncatechars:6}}</h1>
+  </body>
+</html>
