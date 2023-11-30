@@ -56,4 +56,5 @@ def index(request):
             "idMeal": "52925",
         },
     ]
-    return render(request, "index.html", {"data": meals})
+    context = {"data": meals}
+    return render(request, "index.html", context)
