@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>first app template page</h1>
+    <h3>Name: {{author}}</h3>
+    <h3>Age: {{age}}</h3>
+    <h1>Django Template Filters</h1>
+
+    <h3>'add' 5 with age: {{ age| add:"2" }}</h3>
+    <h3>addslashes: {{ address| addslashes }}</h3>
+    <h3>capfirst: {{ address| capfirst }}</h3>
+    <h3>center: {{ address| center:"20" }}</h3>
+    <h3>cut: {{ string| cut:" " }}</h3>
+    <h3>date: {{ date| date:"D d M Y" }}</h3>
+    <h3>default: {{ empty| default:"nothing" }}</h3>
+    <h3>dictsort: {{ dictsort| dictsort:"name" }}</h3>
+    <h3>divisibleby: {{ age| divisibleby:"3" }}</h3>
+    <h3>filesizeformat: {{ size| filesizeformat }}</h3>
+    <h3>first: {{ lst| first }}</h3>
+    <h3>Join: {{ lst| join:" // " }}</h3>
+    <h3>last: {{ lst| last }}</h3>
+    <h3>Length: {{ lst| length }}</h3>
+    <h3>linenumbers: {{ number| linenumbers}}</h3>
+    <h3>lower: {{ name| lower}}</h3>
+    <h3>make_list: {{ size| make_list}}</h3>
+    <h3>random: {{ lst| random}}</h3>
+    <h3>slice: {{ lst| slice:":2"}}</h3>
+    <h3>slugify: {{ lst| slugify }}</h3>
+    <h3>time: {{ time| time:"H:i" }}</h3>
+    <h3>title: {{ title| title }}</h3>
+    <h3>upper: {{ hello| upper }}</h3>
+    <h3>wordcount: {{ hello| wordcount }}</h3>
+    <h3>truncatechars:{{ title| truncatechars:5 }}</h3>
+    <h3>striptags: {{ new| striptags }}</h3>
+    <h3>make_list: {{ size| make_list}}</h3>
+  </body>
+</html>
