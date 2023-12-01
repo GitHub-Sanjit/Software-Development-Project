@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block title %}
+<title>Meals</title>
+{% endblock %} {% block content %}
+<section class="container">
+  <div class="row gap-3 mx-auto justify-content-center my-5">
+    {% for i in data %}
+    <div class="col-md-3 col-sm-6 py-3 px-1">
+      <div class="card" style="width: 18rem">
+        <img
+          src="{{i.strCategoryThumb}}"
+          class="card-img-top img-fluid"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="card-text">{{i.idCategory}}</p>
+          <h5 class="card-title">{{i.strCategory}}</h5>
+          <p class="card-text">
+            {{ i.strCategoryDescription|truncatewords:10 }}
+          </p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
