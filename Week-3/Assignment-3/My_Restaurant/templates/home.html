@@ -1,0 +1,29 @@
+{% extends "base.html" %} {%load static %} {% block title %}
+<title>Home</title>
+{% endblock %} {% block content %}
+
+<section class="bg-danger-subtle vh-100">
+  <div class="container">
+    <div class="row align-items-center justify-content-between py-3">
+      <div class="col-lg-6">
+        <div class="text-center text-lg-start ps-lg-5">
+          <p class="is-overline">Special <strong>Offer</strong></p>
+          <h1 class="display-2 fw-bold">
+            <span class="fw-bold">HEALTHY FOOD</span>
+          </h1>
+          <p class="mt-4 fs-5">
+            We Love Making Things Better. <br />
+            <small>50% OFF.</small>
+          </p>
+          <div class="mt-4 d-flex justify-content-center"></div>
+        </div>
+      </div>
+      <div class="col-lg-6 text-center">
+        <img src=" {% static "1.jpg" %} " alt="" class="img-fluid"
+        style="height: 540px" />
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
