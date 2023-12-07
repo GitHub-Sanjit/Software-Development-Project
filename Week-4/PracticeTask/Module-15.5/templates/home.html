@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block content %} {% load static %}
+
+<h2>List Of Musicians And Their Album</h2>
+<table class="table table-bordered table-dark table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Musician Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Album Rating</th>
+      <th scope="col">Instrument Type</th>
+      <th scope="col">Album Name</th>
+      <th scope="col">Release Date</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for album in data %}
+    <tr>
+      <th scope="row">{{ album.id }}</th>
+      <td>
+        {% for musician in album.musicians.all %}
+        <a style="text-decoration: none; color: green;" href="{% url "edit_musician" musician.id %}">{{ musician.first_name }} {{musician.last_name }}</a>
+        {% if not forloop.last %}, {% endif %} {% endfor %}
+      </td>
+      <td>{{ album.musicians.first.email }}</td>
+      <td>{{ album.rating }}</td>
+      <td>
+        {% if album.musicians.first %}
+        {{ album.musicians.first.instrument_type}}
+        {% endif %}
+      </td>
+      <td>{{ album.album_name }}</td>
+      <td>{{ album.release_date }}</td>
+      <td>
+        <a href={% url 'edit_album' album.id %} class="btn btn-warning btn-sm">Edit</a>
+        <a href={% url 'delete_album' album.id %} class="btn btn-danger btn-sm">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

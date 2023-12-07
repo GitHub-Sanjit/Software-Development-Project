@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %} {% for album in albums %}
+<tr>
+  <td>{{ album.id }}</td>
+  <td>{{ album.musician.first_name }} {{ album.musician.last_name }}</td>
+  <td>{{ album.musician.email }}</td>
+  <td>{{ album.rating }}</td>
+  <td>{{ album.musician.instrument_type }}</td>
+  <td>{{ album.album_name }}</td>
+  <td>{{ album.release_date|date:"d-M-Y" }}</td>
+  <td>
+    <a href="{% url 'edit_album' album.id %}">Edit</a> |
+    <a href="{% url 'delete_album' album.id %}">Delete</a>
+  </td>
+</tr>
+{% endfor %} {% endblock %}
