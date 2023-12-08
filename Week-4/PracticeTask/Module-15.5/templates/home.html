@@ -1,7 +1,9 @@
 {% extends "base.html" %} {% block content %} {% load static %}
 
+
+<section class="mx-5">
 <h2>List Of Musicians And Their Album</h2>
-<table class="table table-bordered table-dark table-hover">
+<table class="table table-bordered table-hover">
   <thead>
     <tr>
       <th scope="col">Id</th>
@@ -19,16 +21,13 @@
     <tr>
       <th scope="row">{{ album.id }}</th>
       <td>
-        {% for musician in album.musicians.all %}
-        <a style="text-decoration: none; color: green;" href="{% url "edit_musician" musician.id %}">{{ musician.first_name }} {{musician.last_name }}</a>
-        {% if not forloop.last %}, {% endif %} {% endfor %}
+        <a style="text-decoration: none; color: green;" href="{% url "edit_musician" album.musicians.id %}">{{ album.musicians.first_name }} {{ album.musicians.last_name }}</a>
       </td>
-      <td>{{ album.musicians.first.email }}</td>
+      <td>{{ album.musicians.email }}</td>
       <td>{{ album.rating }}</td>
       <td>
-        {% if album.musicians.first %}
-        {{ album.musicians.first.instrument_type}}
-        {% endif %}
+        {{ album.musicians.instrument_type}}
+
       </td>
       <td>{{ album.album_name }}</td>
       <td>{{ album.release_date }}</td>
@@ -40,4 +39,5 @@
     {% endfor %}
   </tbody>
 </table>
+</section>
 {% endblock %}

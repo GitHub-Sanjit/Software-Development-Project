@@ -6,8 +6,8 @@ from musician.models import Musician
 
 class Album(models.Model):
     album_name = models.CharField(max_length=225)
-    musicians = models.ManyToManyField(Musician)
-    release_date = models.DateField()
+    musicians = models.ForeignKey(Musician, on_delete=models.CASCADE, default=25)
+    release_date = models.DateTimeField(auto_now_add=True)
     rating = models.IntegerField(choices=[(i, str(i)) for i in range(1, 6)])
 
     def __str__(self):
