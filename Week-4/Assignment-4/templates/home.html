@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="text-center mt-4 mb-3">All The tasks</h1>
+<section class="row my-2 container-xl gap-2 mx-auto">
+  <div class="row row-cols-lg-3 row-cols-md-3 row-cols-1 g-3">
+    {% for task in tasks %}
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="card-header fw-medium">
+           <span class="text-primary fw-bolder fs-5">ID: {{ task.id }}</span>
+           <br>
+            <span class="fw-bold fs-5">Title : {{ task.task_title }}</span>
+            <br>
+            <span class="fw-light">Assigned Date : {{task.task_assign}}</span>
+          </div>
+          <div class="card-body">
+            <p class="card-text"> <u>Description:</u> {{ task.task_description }}</p>
+            {% for cate in task.task_categories.all %}
+              <span class="badge rounded-pill text-bg-info">#{{ cate.category_name }}</span>
+            {% endfor %}
+            <hr>
+            <div class="d-flex justify-content-around">
+              {% if task.is_completed %}
+                <button class="btn btn-success mx-auto" disabled>Completed</button>
+              {% else %}
+                <a href="{% url 'edit_task' task.id %}" class="btn btn-warning">Edit</a>
+                <a href="{% url 'delete_task' task.id %}" class="btn btn-danger">Delete</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock content %}
