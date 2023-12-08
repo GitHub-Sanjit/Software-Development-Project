@@ -4,13 +4,13 @@
     {{ post.title }}
 {% endblock title %}
 {% block css_files %}
-    <link rel="stylesheet" href="blog/post-detail.css">
+    <link rel="stylesheet" href="{% static "blog/post-detail.css" %}">
 {% endblock css_files %}
 {% block content %}
     <section id="summary">
         <h2>{{ post.title }}</h2>
         <article>
-            <img src="{% static "blog/images/mountains.jpg" %} " alt="Post Title" width="300px" height="200px">
+            <img src="{% static "blog/images/"|add:post.image %} " alt="{{ post.title }}" width="300px" height="200px">
             <address>By {{ post.author }}</address>
             <div>
                 Last Updated on <time>{{ post.date|date:"d M Y" }}</time>
@@ -18,6 +18,6 @@
         </article>
     </section>
     <main>
-        {{}}
+        {{ post.content|linebreaks }}
     </main>
 {% endblock content %}
