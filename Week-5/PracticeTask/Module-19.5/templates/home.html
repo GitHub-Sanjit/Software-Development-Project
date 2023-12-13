@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block content %} {% load static %}
+
+
+<section class="mx-5">
+<h2>List Of Musicians And Their Album</h2>
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Musician Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Album Rating</th>
+      <th scope="col">Instrument Type</th>
+      <th scope="col">Album Name</th>
+      <th scope="col">Release Date</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for album in data %}
+    <tr>
+      <th scope="row">{{ album.id }}</th>
+      <td>
+        <a style="text-decoration: none; color: green;" href="{% url "edit_musician" album.musicians.id %}">{{ album.musicians.first_name }} {{ album.musicians.last_name }}</a>
+      </td>
+      <td>{{ album.musicians.email }}</td>
+      <td>{{ album.rating }}</td>
+      <td>
+        {{ album.musicians.instrument_type}}
+
+      </td>
+      <td>{{ album.album_name }}</td>
+      <td>{{ album.release_date }}</td>
+      <td>
+        <a href={% url 'edit_album' album.id %} class="btn btn-warning btn-sm">Edit</a>
+        <a href={% url 'delete_album' album.id %} class="btn btn-danger btn-sm">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</section>
+{% endblock %}
