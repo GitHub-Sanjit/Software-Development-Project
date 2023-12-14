@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+{% load crispy_forms_tags %}
+    <form method="POST" enctype="multipart/form-data" style="width: 50%; margin: auto" nonvalidate>
+    <h1>{{type}} Form</h1>
+    {% csrf_token %}
+    <!--{{form | crispy}}-->
+    {% if form.non_field_errors %}
+    {% for er in form.non_field_errors %}
+        <p class="bg-danger text-white p-3">{{er}}</p>
+    {% endfor %}
+    {% endif %}
+    {% for fm in form%}
+    <div>{{fm.label_tag}}
+        {{fm}}
+        {{fm.errors | striptags}}
+    </div>
+    {% endfor %}
+    <br />
+    <button type="submit" class="btn btn-success text-white">Submit</button>
+    </form>
+{% endblock %}
