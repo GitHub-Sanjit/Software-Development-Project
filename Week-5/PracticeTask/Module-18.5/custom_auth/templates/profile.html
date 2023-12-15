@@ -7,7 +7,7 @@
 
 {% if messages %}
   {% for m in messages %}
-  <p class="bg-success p-3 text-white">{{m}}</p>
+  <span class="p-3 text-success">{{m}}</span>
   {% endfor %}
 {% endif %}
 <br/>
@@ -25,6 +25,6 @@
       {% for fm in form%} {{fm.label_tag}} {{fm}} {{fm.errors|striptags}}
       {% endfor %}
       <br />
-      <button class="btn btn-warning" type="submit">Change Data</button>
+      <button class="btn btn-warning" type="submit">Submit</button>
     </form>
 {% endblock %}
