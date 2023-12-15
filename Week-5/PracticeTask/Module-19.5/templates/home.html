@@ -36,7 +36,7 @@
           <a href={% url 'edit_album' album.id %} class="btn btn-warning btn-sm">Edit</a>
           <a href={% url 'delete_album' album.id %} class="btn btn-danger btn-sm">Delete</a>
         {% else %}
-          <p><small>Please Login</small></p>
+          <p><small class="text-primary">Please <a href="{% url 'login' %}">Login</a></small></p>
         {% endif %}
       </td>
     </tr>

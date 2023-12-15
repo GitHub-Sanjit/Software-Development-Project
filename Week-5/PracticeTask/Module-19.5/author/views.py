@@ -51,7 +51,7 @@ class UserLoginForm(LoginView):
 @method_decorator(login_required, name='dispatch')
 class UserLogoutView(LogoutView):
     def get_success_url(self):
-        messages.success(self.request, "Logout successfully!")
+        messages.success(self.request, "Logged Out successfully!")
         return reverse_lazy('home')
 
 
