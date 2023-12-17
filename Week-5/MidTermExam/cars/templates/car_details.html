@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{%load crispy_forms_tags%}
+{% block content %}
+   <section class="">
+        <div class="my-5 container row mx-auto">
+            <div class="col-8 shadow">
+                <img class="w-100 " src="{{car.image.url}}" alt="">
+            </div>
+            <div class="card shadow col-4 text-center">
+                <div class="card-body">
+                    <h5 class="card-title fs-4">{{car.car_name}}</h5>
+                    <p class="card-text fs-6">{{car.description}}</p>
+                    <hr>
+                    <h4 class="fw-bold">{{car.brand.brand_name}}</h4>
+                    <small class="">Qunatity : {{car.quantity}}</small> <br>
+                    <h6 >Price : <span id="order-price">${{car.price}}</span>K</h6>
+                  {% if request.user.is_authenticated %}
+                  <a href="{% url 'buy_car' car.id %}" type="button" class="btn btn-success">Buy Now</a>
+                  {% endif %}
+                </div>
+              </div>
+        </div>
+        <div class="container">
+          <div class="my-5 py-3 border rounded shadow-sm bg-white">
+            <h5 class="text-center fw-bold">Total Comments : {{comments | length}}</h5>
+
+            {% for comment in comments %}
+              <div class="bg-body-tertiary p-3 border mx-5 my-4 shadow rounded-2">
+                <h5 class="fw-bold">{{comment.name}}</h5>
+                <p>{{comment.content}}</p>
+                {{comment.createdAt}} </small>
+              </div>
+            {% endfor %}
+          </div>
+        {% if request.user.is_authenticated %}
+          <div class="my-5 py-3 border rounded shadow-sm bg-white">
+            <h1 class="text-center">Add Comment</h1>
+            <form method="POST" action="" class="mx-4">
+                {% csrf_token %}
+                {{comment_form|crispy}}
+               <button class="btn btn-success" type="submit">Send</button>
+              </form>
+            </div>
+          {% endif %}
+        </div>
+   </section>
+{% endblock content %}

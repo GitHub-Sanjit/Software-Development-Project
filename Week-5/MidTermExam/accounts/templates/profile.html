@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static " accounts/profile.css" %} ">
+{% endblock css_files %}
+
+{% block content %}
+<section class=" my-2">
+<h1 class="text-center">{{page_type}}</h1>
+
+<section class="d-flex">
+  <div style='width:45%; margin:auto'>
+    <form method="POST" action="" style='width:50%; margin:auto'>
+      {% csrf_token %}
+      {{form|crispy}}
+      <small class="d-block py-2">
+        Change your password here : <a href="{%url 'change_password'%}">Change Password</a>
+      </small>
+      <button class="btn btn-success" type="submit">Submit</button>
+    </form>
+  </div>
+  <div style='width:55%; margin:auto'>
+    <div>
+      {% if is_order_exists != 0 %}
+      <div class="container my-4">
+        <h2 class="text-center fw-bold border-bottom pb-2">Order history</h2>
+        <section class="h-100 gradient-custom w-100">
+          <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+              <div class="col-lg-12 col-xl-12">
+                <div class="card" style="border-radius: 10px;">
+                  <div class="card-header px-4 py-5">
+                    <h5 class="text-muted mb-0">Thanks for your Order</h5>
+                  </div>
+                  <div class="card-body p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                      <p class="lead fw-normal mb-0">Receipt</p>
+                    </div>
+                    {% for order in orders %}
+                    <div class="card shadow-0 border mb-4">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-md-2">
+                            <img src="{{order.car.image.url}}" class="img-fluid" alt="Car Img">
+                          </div>
+                          <div class="col-md-3 text-center d-flex justify-content-center align-items-center">
+                            <p class="text-muted mb-0">{{order.car.car_name}}</p>
+                          </div>
+                          <div class="col-md-3 text-center d-flex justify-content-center align-items-center">
+                            <p class="text-muted mb-0 small">Qty : {{order.quantity}}</p>
+                          </div>
+                          <div class="col-md-3 text-center d-flex justify-content-center align-items-center">
+                            <p class="text-muted mb-0 small">Price: <span id="order-price">${{order.car.price}}</span>K
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+                <div class="card-footer border-0 px-4 py-2 text-end">
+                  <h5>Total :<span id="order-price">${{total_price}}</span>K</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+</section>
+{% endif %}
+</div>
+</section>
+{% endblock %}

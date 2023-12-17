@@ -1,0 +1,8 @@
+.card-car {
+  width:35%;
+}
+@media only screen and (max-width: 578px){
+  .card-car {
+      width:100%;
+  }
+}

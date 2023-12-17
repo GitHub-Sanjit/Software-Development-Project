@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <section class="my-2">
+        <h1 class="text-center">{{page_type}}</h1>
+        <form method="POST" action="" style='width:40%; margin:auto'>
+            {% csrf_token %}
+            {{form|crispy}}
+            <button class="btn btn-success" type="submit">{{page_type}}</button>
+        </form>
+  </section>
+{% endblock %}
