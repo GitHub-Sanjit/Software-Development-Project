@@ -29,7 +29,7 @@ ol {
 .meetup-image img {
   width: 8rem;
   height: 8rem;
-  object-fit: cover;
+  /* object-fit: cover; */
   border-radius: 50%;
 }
 
