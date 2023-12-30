@@ -121,32 +121,32 @@ class LoanRequestView(TransactionCreateMixin):
         )
         send_transaction_email(self.request.user, amount, "Loan Request Message", "transactions/loan_email.html")
         return super().form_valid(form)
-    
+
 class TransactionReportView(LoginRequiredMixin, ListView):
     template_name = 'transactions/transaction_report.html'
     model = Transaction
     balance = 0 # filter korar pore ba age amar total balance ke show korbe
-    
+
     def get_queryset(self):
         queryset = super().get_queryset().filter(
             account=self.request.user.account
         )
         start_date_str = self.request.GET.get('start_date')
         end_date_str = self.request.GET.get('end_date')
-        
+
         if start_date_str and end_date_str:
             start_date = datetime.strptime(start_date_str, '%Y-%m-%d').date()
             end_date = datetime.strptime(end_date_str, '%Y-%m-%d').date()
-            
+
             queryset = queryset.filter(timestamp__date__gte=start_date, timestamp__date__lte=end_date)
             self.balance = Transaction.objects.filter(
                 timestamp__date__gte=start_date, timestamp__date__lte=end_date
             ).aggregate(Sum('amount'))['amount__sum']
         else:
             self.balance = self.request.user.account.balance
-       
+
         return queryset.distinct() # unique queryset hote hobe
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update({
@@ -154,8 +154,8 @@ class TransactionReportView(LoginRequiredMixin, ListView):
         })
 
         return context
-    
-        
+
+
 class PayLoanView(LoginRequiredMixin, View):
     def get(self, request, loan_id):
         loan = get_object_or_404(Transaction, id=loan_id)
@@ -186,7 +186,7 @@ class LoanListView(LoginRequiredMixin,ListView):
     model = Transaction
     template_name = 'transactions/loan_request.html'
     context_object_name = 'loans' # loan list ta ei loans context er moddhe thakbe
-    
+
     def get_queryset(self):
         user_account = self.request.user.account
         queryset = Transaction.objects.filter(account=user_account,transaction_type=3)
