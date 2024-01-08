@@ -23,28 +23,28 @@
         <a href="addUser.html" class="menu text-info">Add User</a>
         </div>
     </nav>
-    <div class="d-flex justify-content-center category-container">
-        <div id="category">
-        </div>
+    <div class="searchBar col-md-6 m-auto mt-3">
+        <input id="search" class="form-control me-2" type="text" placeholder="Enter User ID" aria-label="Search">
+        <button onclick="handleSearch()" class="btn btn-info">Search</button>
     </div>
-    <div class="row">
-        <div class="col-xl-12">
-            <div id="products" class="row mt-5 all-card">
+    <div class="container mt-4">
+        <div class="row col-xl-12">
+            <div id="alluser" class="row">
 
             </div>
-            <div id="nodata" class="text-center">
-                <h3>No Data</h3>
+            <div id="nodata" class="nodata text-center">
+                <!-- <h3>No Data</h3> -->
             </div>
-            <div id="spinner" class="loading text-center m-auto spinner-border text-success mt-5" role="status">
+            <div id="spinner" class="loading text-center m-auto spinner-border text-success" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
-
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./allUser.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous"
         defer></script>
-    <script src="./app.js"></script>
 </body>
 
 </html>

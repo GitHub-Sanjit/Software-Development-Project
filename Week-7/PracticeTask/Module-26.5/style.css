@@ -39,3 +39,14 @@ body {
 a {
   text-decoration: none;
 }
+.searchBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+.noData {
+  display: none;
+}
